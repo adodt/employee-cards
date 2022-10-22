@@ -30,11 +30,8 @@ test('get employee email', () => {
 
 });
 
-
-////getName()
-
-//getId()
-
-//getEmail()
-
-//getRole() returns 'Employee'
+//tests employee role ()
+test('gets role of employee', () => {
+    const employee = new Employee('Alli', 222, 'allidodt@gmail.com');
+    epect(employee.getRole()).toEqual("Employee");
+});
