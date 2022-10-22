@@ -33,5 +33,5 @@ test('get employee email', () => {
 //tests employee role ()
 test('gets role of employee', () => {
     const employee = new Employee('Alli', 222, 'allidodt@gmail.com');
-    epect(employee.getRole()).toEqual("Employee");
+    expect(employee.getRole()).toEqual("Employee");
 });
