@@ -1,0 +1,27 @@
+{
+  "name": "employee-cards",
+  "version": "1.0.0",
+  "description": "I want to generate a webpage that displays my team's basic info so that I have quick access to their emails and GitHub profiles. ",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adodt/employee-cards.git"
+  },
+  "author": "Alli Dodt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adodt/employee-cards/issues"
+  },
+  "homepage": "https://github.com/adodt/employee-cards#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^29.2.1"
+  }
+}
