@@ -1,4 +1,4 @@
-# README-GENERATOR
+# Employee Cards
 ![Github license](http://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Description
