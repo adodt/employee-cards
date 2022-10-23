@@ -79,4 +79,8 @@ const addManager = () => {
 };
 
 //Engineer and Intern input
-const addEmployee
+const addEmployee = () => {
+    console.log(`
+    
+    `)
+}
