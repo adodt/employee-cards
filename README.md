@@ -15,10 +15,9 @@ Node and inquirer are require to run application.
 
 ## Usage
 Every project should include a thorough ReadMe. This project allows a markdown file to be created quiclkly and professionaly.  Having a  consistent looking ReadMe  for all projects will create a more professional looking repo.  
-https://adodt.github.io/readme-generator/  
 
 
-<img src="./src./employeeCardsVideo.gif" />
+<img src="employeeCardsVideo"/>
 
 ## License
 MIT
