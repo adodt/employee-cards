@@ -1,5 +1,4 @@
 # Employee Cards
-![Github license](http://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Description
 The goal of this project is to build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. 
@@ -11,10 +10,10 @@ The goal of this project is to build a Node.js command-line application that tak
 -[Questions](#questions)<br />
 
 ## Installation
-Node and inquirer are require to run application.
+Node and inquirer are required to run this application.
 
 ## Usage
-Every project should include a thorough ReadMe. This project allows a markdown file to be created quiclkly and professionaly.  Having a  consistent looking ReadMe  for all projects will create a more professional looking repo.  
+This application can be used to organize employees by job title. Contact information can be found on employee cards. Application is screen responsive.
 
 
 <img src="employeeCardsVideo.gif" />
