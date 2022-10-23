@@ -66,7 +66,7 @@ const generateEngineer = function (engineer) {
             </div>
             <div class="cardBody">
                 <p class="id">ID number: ${engineer.id}</p>
-                <p class="email">Email: <a href="mailto:${engineer.email}"></a></p>
+                <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
                 <p class="github">Github profile: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
             </div>
         </div>
@@ -84,8 +84,8 @@ const generateIntern = function (intern) {
                 <h4>Intern</h4><i class="material-icons">assignment_ind</i>
             </div>
             <div class="cardBody">
-                <p class="id">ID number: ${engineer.id}</p>
-                <p class="email">Email: <a href="mailto:${intern.email}"></a></p>
+                <p class="id">ID number: ${intern.id}</p>
+                <p class="email">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
                 <p class="school">School: ${intern.school}</p>
             </div>
         </div>
@@ -93,6 +93,36 @@ const generateIntern = function (intern) {
     `
 };
 
+//publish array 
+generateHTML = (data) => {
+    pageArray = [];
+    for (let i = 0; i< data.length; i++) {
+        const employee = data[i];
+        const role = employee.getRole();
+
+        if (role === 'Manager') {
+            const managerCard = generateManager(employee);
+
+            pageArray.push(managerCard); 
+        }
+
+        if (role === 'Engineer') {
+            const engineerCard = generateEngineer(employee);
+
+            pageArray.push(engineerCard);
+        }
+
+        if (role === 'Intern') {
+            const internCard = generateIntern(employee);
+
+            pageArray.push(internCard);
+        }
+    }
+
+    const employeeCards = pageArray.join('')
+    const generateTeam = generateTeamPage(employeeCards);
+    return generateTeam;
+};
 
 
 module.exports = generateHTML;

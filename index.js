@@ -195,7 +195,11 @@ const writeFile = data => {
             console.log(err);
             return;
         } else {
-            console.log("Your team has now been created! You can access index.html")
+            console.log(`
+            =================
+            Your Team Has Been Created
+            =================
+            `)
         }
     })
 };
