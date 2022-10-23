@@ -14,9 +14,8 @@ Node and inquirer are required to run this application.
 
 ## Usage
 This application can be used to organize employees by job title. Contact information can be found on employee cards. Application is screen responsive.
-
-
-<img src="employeeCardsVideo.gif" />
+<a href="https://drive.google.com/file/d/11HRRQR_CwNt1247P5lVQ12gu1H97d1jk/view">View Video</a>
+<img src="employeeCards.gif" />
 
 ## License
 MIT
