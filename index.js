@@ -1,22 +1,17 @@
 // create page link
-const generateHTML = require('/src/generateHTML');
+const generateHTML = require('./src/generateHTML');
 //bring in employee roles
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 //modules
-const fs = requite('fs');
+const fs = require('fs');
 const inquirer = require('inquirer');
 
 const teamArray = [];
 
 //Manager input
 const addManager = () => {
-    console.log(`
-    =================
-    Add a New Manager
-    =================
-    `)
     return inquirer.prompt([
         {
             type: 'input',
@@ -148,10 +143,50 @@ const addEmployee = () => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log ("Enter emoloyee GitHub username before proceeding.")
+                    console.log("Enter emoloyee GitHub username before proceeding.")
                 }
             }
         },
-        
+        {
+            type: 'input',
+            name: 'school',
+            message: "Intern's school:",
+            when: (input) => input.role === "Intern",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Enter intern's school before proceeding.")
+                }
+            }
+        },
+        {
+            type: 'confirm',
+            name: 'confirmEmployee',
+            message: 'Add other employees?',
+            default: false
+        }
     ])
-}
+    .then(employeeData => {
+        let { name, id, email, role, github, school, confirmAddEmployee } = employeeData;
+        let employee;
+
+        if(role === 'Engineer') {
+            employee = new Engineer (name, id, email, github);
+            console.log(employee);
+        } else if (role ==="Intern") {
+            employee = new Intern (name, id, email, school);
+            console.log(employee);
+        }
+
+        teamArray.push(employee);
+
+        if (confirmAddEmployee) {
+            return addEmployee(teamArray);
+        } else {
+            return teamArray;
+        }
+    })
+};
+
+
