@@ -5,6 +5,7 @@
 
 .cardBox {
     box-shadow: 3px 6px 3px rgb(196, 215, 218);
+    margin: 0.25rem;
 }
 .cardHeader{
     background-color: rgb(196, 215, 218);
