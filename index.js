@@ -12,6 +12,11 @@ const teamArray = [];
 
 //Manager input
 const addManager = () => {
+    console.log(`
+    =================
+    Add a New Manager
+    =================
+    `)
     return inquirer.prompt([
         {
             type: 'input',
@@ -21,7 +26,7 @@ const addManager = () => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("Enter name of manager before moving forward.");
+                    console.log("Enter name of manager before proceeding.");
                     return false;
                 }
             }
@@ -32,7 +37,7 @@ const addManager = () => {
             message: "Enter manager ID number:",
             validate: nameInput => {
                 if (isNan(nameInput)) {
-                    console.log("Enter manager's ID number before moving forward.")
+                    console.log("Enter manager's ID number before proceeding.")
                     return false;
                 } else {
                     return true;
@@ -48,7 +53,7 @@ const addManager = () => {
                 if (valid) {
                     return true;
                 } else {
-                    console.log('Please enter an email!')
+                    console.log("Enter an email before proceeding.")
                     return false;
                 }
             }
@@ -59,7 +64,7 @@ const addManager = () => {
             message: "What is your manager's office number?",
             validate: nameInput => {
                 if (isNan(nameInput)) {
-                    console.log("Enter the office number before moving forward.")
+                    console.log("Enter the office number before proceeding.")
                     return false;
                 } else {
                     return true;
@@ -81,6 +86,72 @@ const addManager = () => {
 //Engineer and Intern input
 const addEmployee = () => {
     console.log(`
-    
-    `)
+    =================
+    Add New Employees
+    =================
+    `);
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'role',
+            message: "What is the employee's role?",
+            choices: ['Engineer', 'Intern']
+
+        },
+        {
+            type: 'input',
+            name: 'name',
+            message: "Enter employee's name'",
+            validate: nameInput => {
+                if (nameInput) {
+                    if (nameInput) {
+                        return true;
+                    } else {
+                        console.log("Enter employee's name before proceeding.");
+                        return false;
+                    }
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Enter employee ID number:",
+            validate: nameInput => {
+                if (isNan(nameInput)) {
+                    console.log('Enter employee ID number before proceeding.')
+                } else {
+                    return true;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Enter the employee's email before proceeding.",
+            validate: email => {
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                if (valid) {
+                    return true;
+                } else {
+                    console.log('Enter a valid email before proceeding.')
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: "Enter employee GitHub username:",
+            when: (input) => input.role === "Engineer",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log ("Enter emoloyee GitHub username before proceeding.")
+                }
+            }
+        },
+        
+    ])
 }
