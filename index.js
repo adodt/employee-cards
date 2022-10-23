@@ -31,7 +31,7 @@ const addManager = () => {
             name: 'id',
             message: "Enter manager ID number:",
             validate: nameInput => {
-                if (isNan(nameInput)) {
+                if (isNaN(nameInput)) {
                     console.log("Enter manager's ID number before proceeding.")
                     return false;
                 } else {
@@ -55,10 +55,10 @@ const addManager = () => {
         },
         {
             type: 'input',
-            name: 'officeNumer',
+            name: 'officeNumber',
             message: "What is your manager's office number?",
             validate: nameInput => {
-                if (isNan(nameInput)) {
+                if (isNaN(nameInput)) {
                     console.log("Enter the office number before proceeding.")
                     return false;
                 } else {
@@ -113,7 +113,7 @@ const addEmployee = () => {
             name: 'id',
             message: "Enter employee ID number:",
             validate: nameInput => {
-                if (isNan(nameInput)) {
+                if (isNaN(nameInput)) {
                     console.log('Enter employee ID number before proceeding.')
                 } else {
                     return true;
@@ -162,31 +162,53 @@ const addEmployee = () => {
         },
         {
             type: 'confirm',
-            name: 'confirmEmployee',
+            name: 'confirmAddEmployee',
             message: 'Add other employees?',
             default: false
         }
     ])
-    .then(employeeData => {
-        let { name, id, email, role, github, school, confirmAddEmployee } = employeeData;
-        let employee;
+        .then(employeeData => {
+            let { name, id, email, role, github, school, confirmAddEmployee } = employeeData;
+            let employee;
 
-        if(role === 'Engineer') {
-            employee = new Engineer (name, id, email, github);
-            console.log(employee);
-        } else if (role ==="Intern") {
-            employee = new Intern (name, id, email, school);
-            console.log(employee);
-        }
+            if (role === 'Engineer') {
+                employee = new Engineer(name, id, email, github);
+                console.log(employee);
+            } else if (role === "Intern") {
+                employee = new Intern(name, id, email, school);
+                console.log(employee);
+            }
 
-        teamArray.push(employee);
+            teamArray.push(employee);
 
-        if (confirmAddEmployee) {
-            return addEmployee(teamArray);
+            if (confirmAddEmployee) {
+                return addEmployee(teamArray);
+            } else {
+                return teamArray;
+            }
+        })
+};
+
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return;
         } else {
-            return teamArray;
+            console.log("Your team has now been created! You can access index.html")
         }
     })
 };
 
+addManager()
+    .then(addEmployee)
+    .then(teamArray => {
+        return generateHTML(teamArray);
+    })
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 

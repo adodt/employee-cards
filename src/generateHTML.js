@@ -1,0 +1,2 @@
+//Manager card
+const generate
