@@ -17,7 +17,7 @@ Node and inquirer are require to run application.
 Every project should include a thorough ReadMe. This project allows a markdown file to be created quiclkly and professionaly.  Having a  consistent looking ReadMe  for all projects will create a more professional looking repo.  
 
 
-<img src="employeeCardsVideo"/>
+<img src="employeeCardsVideo.gif" />
 
 ## License
 MIT
