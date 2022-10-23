@@ -68,5 +68,15 @@ const addManager = () => {
         }
 
     ])
-    
+        //add manager to array
+        .then(managerInput => {
+            const { name, id, email, officeNumber } = managerInput;
+            const manager = new Manager(name, id, email, officeNumber);
 
+            teamArray.push(manager);
+            console.log(manager);
+        })
+};
+
+//Engineer and Intern input
+const addEmployee
