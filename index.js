@@ -196,9 +196,9 @@ const writeFile = data => {
             return;
         } else {
             console.log(`
-            =================
+            ===========================
             Your Team Has Been Created
-            =================
+            ===========================
             `)
         }
     })
